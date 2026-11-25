@@ -7,9 +7,17 @@ List<string> repairs = new List<string>
     "CANCELLED: Move storage crate"
 };
 
-int jobNumber = 1;
+int jobNumber = 0;
 
 foreach (string repair in repairs)
 {
     // TODO: Hopp over kansellerte jobber og nummerer resten.
+    if (repair.StartsWith("CANCELLED:"))
+    {
+        continue;
+    }
+
+    jobNumber++;
+
+    Console.WriteLine($"Job {jobNumber}:" + repair);
 }
